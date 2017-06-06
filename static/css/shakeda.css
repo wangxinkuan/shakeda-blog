@@ -1,0 +1,65 @@
+.content_placeholder-div {
+    margin-top: 20px;
+    padding: 0px;
+}
+
+.sidebar-div {
+    background-color: #f5f5f5;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.catgories-div > h4 {
+    float: left;
+    padding-right: 15px;
+}
+
+.catgories-div ul {
+    padding-left: 30px;
+}
+
+.catgories-div li {
+    list-style-type: none;
+    padding-bottom: 10px;
+}
+
+
+.catgories-div span .badge {
+    margin-top: -3px;
+}
+
+
+.tags-div {
+    margin-top: 20px;
+}
+
+.tags-div > h4 {
+    float: left;
+    padding-right: 15px;
+}
+
+.tags-nav {
+    margin-left: 30px;
+    margin-right:30px;
+}
+
+.tags-nav a {
+    margin-bottom: 5px;
+}
+
+.artical-head {
+    font-size: 25px;
+}
+
+.artical-head > span {
+    font-size: 14px;
+}
+
+.site-name {
+    font-size: 30px;
+}
+
+.site-page {
+    font-size: 20px;
+}

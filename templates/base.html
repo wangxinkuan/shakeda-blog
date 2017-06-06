@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <!-- Bootstrap -->
+
+    <!-- 代码高亮 -->
+    {% if COLOR_SCHEME_CSS %}
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
+    {% else %}
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/darkly.css" rel="stylesheet">
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/shakeda.css"/>
+
+
+</head>
+
+<body id="index" class="home" style="padding-top: 50px; padding-bottom: 70px;">
+
+<!--顶部导航-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <!--一条线 两条线 三条线 形成了一个符号 -->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand site-name" href="{{ SITEURL }}/">{{ SITENAME }}</a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                {% for title, link in MENUITEMS %}
+                    <li><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+
+                {% if DISPLAY_PAGES_ON_MENU %}
+					{% for p in pages %}
+						<li{% if p == page %} class="active"{% endif %}><a class="site-page" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+					{% endfor %}
+                {% endif %}
+
+                <!--{% if DISPLAY_PAGES_ON_MENU %}
+                    {% for pg in pages %}
+                        <li {% if pg==page %} class="active" {% endif %}><a
+                                href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a></li>
+                    {% endfor %}
+                {% endif %}
+
+                {% if DISPLAY_CATEGORIES_ON_MENU %}
+                    {% for cat, null in categories %}
+                        <li{% if cat==category %} class="active" {% endif %}><a
+                                href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                    {% endfor %}
+                {% endif %}-->
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+    {% block content_placeholder %}{% endblock content_placeholder %}
+</div>
+
+<!--底部-->
+<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: #a0a0a0;">
+    <div class="container">
+        <p style="text-align: center; margin: 15px;">
+            Blog powered by <a href="http://getpelican.com/">Pelican</a>   
+            Theme created by <a href="https://github.com/wxkNeter">wxkNeter</a>
+        </p>
+    </div>
+</nav>
+
+<!--导入jquery和bootstrap-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
+</body>
+
+</html>

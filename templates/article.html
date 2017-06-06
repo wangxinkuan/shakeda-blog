@@ -1,0 +1,37 @@
+{% extends "with-sidebar.html" %}
+{% block title %}{{ article.title|striptags }}{% endblock %}
+
+{% block content %}
+
+<section id="content" class="body">
+
+  <article>
+
+    <header>
+      <h1>
+        {{ article.title }}
+      </h1>
+
+      <ul class="list-inline">
+        <li>
+          {% for author in article.authors %}<a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+            {% if not loop.last %},
+            {% endif%}
+          {% endfor %}
+        </li>
+
+        <li>{{ article.locale_date }}</li>
+        <li><a href="{{ SITEURL }}/category/{{ article.category }}">{{ article.category }}</a></li>
+      </ul>
+
+    </header>
+
+    <div>
+      {{ article.content }}
+    </div>
+
+  </article>
+
+</section>
+
+{% endblock %}

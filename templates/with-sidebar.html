@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content_placeholder %}
+	<div class="col-sm-8 content_placeholder-div">
+		{% block content %}{% endblock content %}
+	</div>
+
+	<!-- Sidebar -->
+	<div class="col-sm-3 col-sm-offset-1 sidebar-div">
+		{% if 'about' in SIDEBAR_DISPLAY and SIDEBAR_ABOUT %}
+		<!-- About  -->
+		<div>
+			<h3 class="headline">About</h3><span class="line"></span>
+			<p>{{ SIDEBAR_ABOUT }}</p>
+		</div>
+		{% endif %}
+
+		{% if 'categories' in SIDEBAR_DISPLAY %}
+		<!-- Categories -->
+
+		<div class="catgories-div clearfix">
+			<h4>目录</h4>
+			<hr>
+			<nav>
+				<ul>
+					{% for cat, arts in categories %}
+					    <li {% if cat == category %} class="active" {% endif %}>
+
+							{% if cat == category %}
+								<span class="glyphicon glyphicon-folder-open">
+							{% else %}
+								<span class="glyphicon glyphicon-folder-close">
+							{% endif %}
+							 
+							<a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+							<span class="badge">{{arts | length}}</span>
+						</li>
+					{% endfor %}
+				</ul>
+			</nav>
+		</div>
+		{% endif %}
+		
+		{% if 'tags' in SIDEBAR_DISPLAY %}
+		<!-- Tags -->
+		<div class="tags-div clearfix">
+			<h4>标签</h4>
+			<hr>
+			<nav class="tags-nav">
+				{% for tag, articles in tags|sort %}
+				    <a class="btn btn-info btn-xs" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+				{% endfor %}
+			</nav>
+		</div>
+		{% endif %}
+	</div>
+{% endblock content_placeholder %}
