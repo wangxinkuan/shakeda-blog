@@ -18,7 +18,7 @@
 /* 右边导航栏
 ====================================*/
 .sidebar-div {
-    background-color: #f5f5f5;
+    background-color: whitesmoke;
     margin-top: 20px;
     border-radius: 10px;
     padding: 10px;
@@ -78,7 +78,7 @@
 /* article.html 占据index的content
 ====================================*/
 .article-div{
-    background: whitesmoke;
+    background: #d9edf7;
     padding: 20px;
     padding-top: 10px;
     margin-top: 0px;
@@ -91,10 +91,11 @@
     margin-bottom: 30px;
 }
 
-/*.article-div .article-header h1{
-    background-color: #BED4EB
+/* page.html 占据index的content
+====================================*/
+.page-div{
+    background: #d9edf7;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
 }
-
-.article-div .article-content h2{
-    background-color: #BED4EB
-}*/
