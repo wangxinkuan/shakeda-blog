@@ -3,11 +3,9 @@
 
 {% block content %}
 
-<section id="content" class="body">
+<article class="article-div">
 
-  <article>
-
-    <header>
+    <header class="article-header">
       <h1>
         {{ article.title }}
       </h1>
@@ -26,12 +24,11 @@
 
     </header>
 
-    <div>
+    <div class="article-content">
       {{ article.content }}
     </div>
 
-  </article>
+</article>
 
-</section>
 
 {% endblock %}

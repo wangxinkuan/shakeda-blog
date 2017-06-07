@@ -8,7 +8,7 @@
 
 			<!--标题-->
 			<div class="panel-heading">
-				<h3 class="panel-title artical-head">
+				<h3 class="panel-title index-article-head">
 					{{ article.title }}
 					<span>
 							{{ article.locale_date }}
@@ -19,19 +19,14 @@
 
 			<!--内容-->
 			<div class="panel-body">
-				<div class="{% if article.image %}seven{% else %}twelve{% endif %} columns">
-					<section class="post-content">
-						<p>
-							{% if SHOW_FULL_ARTICLE %}
-								{{ article.content }}
-							{% elif article.summary %}
-								{{ article.summary|truncate(280)|prettify }}
-							{% endif %}
-						</p>
-						<a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-primary btn-md">Read More</a>
-
-					</section>
-				</div>
+				<section class="post-content">
+					{% if SHOW_FULL_ARTICLE %}
+						{{ article.content }}
+					{% else %}
+						{{ article.summary|truncate(280)|prettify }}
+					{% endif %}
+					<a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-primary btn-md">Read More</a>
+				</section>
 			</div>
 
 		</div>
