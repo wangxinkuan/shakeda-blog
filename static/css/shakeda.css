@@ -99,3 +99,26 @@
     margin-top: 10px;
     border-radius: 10px;
 }
+
+/* Note Warning
+====================================*/
+div.note {
+    background-color: #fbc5c5;
+    border: 1px solid #ccc;
+}
+
+div.admonition {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 7px;
+}
+
+p.admonition-title {
+    display: inline;
+    margin: 0px 10px 5px 0px;
+    font-weight: bold;
+}
+
+div.admonition p.admonition-title + p {
+    display: inline;
+}
