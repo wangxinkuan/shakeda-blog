@@ -2,41 +2,43 @@
 
 {% block content %}
 
+<div class="index-articles-div">
+
 	{% for article in articles_page.object_list %}
-		
-		<div class="panel panel-info">
 
-			<!--标题-->
-			<div class="panel-heading">
-				<h3 class="panel-title index-article-head">
-					{{ article.title }}
-					<span>
-							{{ article.locale_date }}
-							<a href="{{ SITEURL }}/category/{{ article.category }}">{{ article.category }}</a>
-					</span>
-				</h3>
-			</div>
+		<!--每一篇文章-->
+		<section class="index-article">
+			
+			<h3 class="index-article-head">
+				{{ article.title }}
+				<span>
+						{{ article.locale_date }}
+						<a href="{{ SITEURL }}/category/{{ article.category }}">{{ article.category }}</a>
+				</span>
+			</h3>
+			
 
-			<!--内容-->
-			<div class="panel-body">
-				<section class="post-content">
+			<div class="index-article-content">
+				<p>
 					{% if SHOW_FULL_ARTICLE %}
 						{{ article.content }}
-					{% else %}
-						{{ article.summary|truncate(280)|prettify }}
+					{% elif article.summary %}
+						{{ article.summary|truncate(280)| prettify}}
 					{% endif %}
-					<a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-primary btn-md">Read More</a>
-				</section>
+				</p>
+
+				<a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-primary btn-md">Read More</a>
 			</div>
 
-		</div>
-            
+		</section>
+					
 		<!--每篇文章后一个分割线-->
 		{% if not loop.last %}
 		<hr>
 		{% endif %}
         
 	{% endfor %}
+</div>
 
 
 	<!--底部分页导航-->

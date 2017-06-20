@@ -22,68 +22,70 @@
 
 </head>
 
-<body id="index" class="home" style="padding-top: 50px; padding-bottom: 70px;">
+<body>
 
 <!--顶部导航-->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false"
-                    aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <!--一条线 两条线 三条线 形成了一个符号 -->
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand site-name" href="{{ SITEURL }}/">{{ SITENAME }}</a>
-        </div>
+<div class="site-header">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false"
+                        aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <!--一条线 两条线 三条线 形成了一个符号 -->
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand site-name" href="{{ SITEURL }}/">{{ SITENAME }}</a>
+            </div>
 
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                {% for title, link in MENUITEMS %}
-                    <li><a href="{{ link }}">{{ title }}</a></li>
-                {% endfor %}
-
-                {% if DISPLAY_PAGES_ON_MENU %}
-					{% for p in pages %}
-						<li{% if p == page %} class="active"{% endif %}><a class="site-page" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-					{% endfor %}
-                {% endif %}
-
-                <!--{% if DISPLAY_PAGES_ON_MENU %}
-                    {% for pg in pages %}
-                        <li {% if pg==page %} class="active" {% endif %}><a
-                                href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a></li>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    {% for title, link in MENUITEMS %}
+                        <li><a href="{{ link }}">{{ title }}</a></li>
                     {% endfor %}
-                {% endif %}
 
-                {% if DISPLAY_CATEGORIES_ON_MENU %}
-                    {% for cat, null in categories %}
-                        <li{% if cat==category %} class="active" {% endif %}><a
-                                href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-                    {% endfor %}
-                {% endif %}-->
-            </ul>
+                    {% if DISPLAY_PAGES_ON_MENU %}
+                        {% for p in pages %}
+                            <li{% if p == page %} class="active"{% endif %}><a class="site-page" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+
+                    <!--{% if DISPLAY_PAGES_ON_MENU %}
+                        {% for pg in pages %}
+                            <li {% if pg==page %} class="active" {% endif %}><a
+                                    href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if DISPLAY_CATEGORIES_ON_MENU %}
+                        {% for cat, null in categories %}
+                            <li{% if cat==category %} class="active" {% endif %}><a
+                                    href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                        {% endfor %}
+                    {% endif %}-->
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <!--/.nav-collapse -->
-    </div>
-</nav>
-
-<div class="container">
-    {% block content_placeholder %}{% endblock content_placeholder %}
+    </nav>
 </div>
 
-<!--底部-->
-<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: #a0a0a0;">
+<div class="site-body ">
     <div class="container">
-        <p style="text-align: center; margin: 15px;">
-            Powered by <a href="http://getpelican.com/">Pelican</a>   
-            Theme by <a href="https://github.com/wxkNeter/shakeda-blog">shakeda-blog</a>
-        </p>
+            {% block content_placeholder %}{% endblock content_placeholder %}
     </div>
-</nav>
+</div>
+
+<!--底部 navbar navbar-default navbar-fixed-bottom -->
+<div class="site-footer">
+    <p style="text-align: center; margin: 15px;">
+        Powered by <a href="http://getpelican.com/">Pelican</a>   
+        Theme by <a href="https://github.com/wxkNeter/shakeda-blog">shakeda-blog</a>
+    </p>
+</div>
 
 <!--导入jquery和bootstrap-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -93,3 +95,7 @@
 </body>
 
 </html>
+
+
+<!DOCTYPE html>
+<html lang="en">

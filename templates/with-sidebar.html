@@ -20,20 +20,27 @@
 
 		<div class="catgories-div clearfix">
 			<h4>目录</h4>
-			<hr>
 			<nav>
 				<ul>
 					{% for cat, arts in categories %}
 					    <li {% if cat == category %} class="active" {% endif %}>
 
+							<a href="{{ SITEURL }}/{{ cat.url }}">
+							
 							{% if cat == category %}
-								<span class="glyphicon glyphicon-folder-open">
+								<span class="glyphicon glyphicon-folder-open"></span>
+
 							{% else %}
-								<span class="glyphicon glyphicon-folder-close">
+								<span class="glyphicon glyphicon-folder-close"></span>
+
 							{% endif %}
-							 
-							<a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+
+							<span>{{ cat }}</span>
+							
 							<span class="badge">{{arts | length}}</span>
+							
+							</a>
+							
 						</li>
 					{% endfor %}
 				</ul>
@@ -45,7 +52,6 @@
 		<!-- Tags -->
 		<div class="tags-div clearfix">
 			<h4>标签</h4>
-			<hr>
 			<nav class="tags-nav">
 				{% for tag, articles in tags|sort %}
 				    <a class="btn btn-info btn-xs" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
