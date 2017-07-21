@@ -18,17 +18,49 @@
 			</h3>
 			
 
+			{% if article.logo %}
+			
 			<div class="index-article-content">
 				<p>
-					{% if SHOW_FULL_ARTICLE %}
-						{{ article.content }}
-					{% elif article.summary %}
-						{{ article.summary|truncate(280)| prettify}}
-					{% endif %}
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 col-md-2">
+							<img src="{{ SITEURL }}/images/{{ article.logo }}" alt="{{ article.title}}"/>
+						</div>
+
+						<div class="col-xs-8 col-sm-8 col-md-10">
+							<div class="index-article-content">
+							<p>
+								{% if SHOW_FULL_ARTICLE %}
+									{{ article.content }}
+								{% elif article.summary %}
+									{{ article.summary|truncate(280)| prettify}}
+								{% endif %}
+							</p>
+
+							</div>
+						</div>
+
+					</div>
 				</p>
 
 				<a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-primary btn-md">Read More</a>
+
 			</div>
+			
+			{% else %}
+				<div class="index-article-content">
+					<p>
+						{% if SHOW_FULL_ARTICLE %}
+							{{ article.content }}
+						{% elif article.summary %}
+							{{ article.summary|truncate(280)| prettify}}
+						{% endif %}
+					</p>
+
+					<a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-primary btn-md">Read More</a>
+				</div>
+
+			{% endif %}
 
 		</section>
 					
