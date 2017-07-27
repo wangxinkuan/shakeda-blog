@@ -168,6 +168,10 @@ img.align-center {
     margin-bottom: 30px;
 }
 
+.article-div .article-content table.docutils{
+    width: 100%;
+}
+
 /* page.html 占据index的content
 ====================================*/
 .page-div{
