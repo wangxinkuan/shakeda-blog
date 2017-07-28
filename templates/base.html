@@ -39,10 +39,15 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand site-name" href="{{ SITEURL }}/">{{ SITENAME }}</a>
+                {% if YOURSENTENSE %}
+                    <p class="navbar-text">{{YOURSENTENSE}}</p>
+                {% endif %}
             </div>
 
             <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li{% if "index" == page_name %} class="active"{% endif %}><a class="site-page" href="{{ SITEURL }}/">主页</a></li>
+
                     {% for title, link in MENUITEMS %}
                         <li><a href="{{ link }}">{{ title }}</a></li>
                     {% endfor %}
@@ -53,19 +58,6 @@
                         {% endfor %}
                     {% endif %}
 
-                    <!--{% if DISPLAY_PAGES_ON_MENU %}
-                        {% for pg in pages %}
-                            <li {% if pg==page %} class="active" {% endif %}><a
-                                    href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a></li>
-                        {% endfor %}
-                    {% endif %}
-
-                    {% if DISPLAY_CATEGORIES_ON_MENU %}
-                        {% for cat, null in categories %}
-                            <li{% if cat==category %} class="active" {% endif %}><a
-                                    href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-                        {% endfor %}
-                    {% endif %}-->
                 </ul>
             </div>
             <!--/.nav-collapse -->
