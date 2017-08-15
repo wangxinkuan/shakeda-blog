@@ -211,3 +211,20 @@ p.admonition-title {
 div.admonition p.admonition-title + p {
     display: inline;
 }
+
+/* 关于我
+====================================*/
+address {
+    font-size: 16px;
+}
+
+a i[class^="icon-"],
+a i[class*=" icon-"] {
+    color: black;
+}
+
+a:hover i[class^="icon-"],
+a:hover i[class*=" icon-"] {
+    color: #2a6496;
+    text-decoration: none;
+}
